@@ -2,6 +2,8 @@
 using namespace std;
 
 void lowerBoundMethod();
+
+/*Lower bound works on binary search*/
 int main(){
     lowerBoundMethod();
     return 0;

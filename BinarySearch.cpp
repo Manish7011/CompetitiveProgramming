@@ -22,6 +22,7 @@ int main(){
             a = k+1;
         else
             b = k-1;
+        k=(b+a)/2;
 
     }
     return 0;

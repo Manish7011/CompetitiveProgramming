@@ -13,12 +13,28 @@ void mapStructure();
 void bitSetStructure();
 void dqueueStructure();
 void stackStructure();
+void queueStructure();
 
 int main(){
-    stackStructure();
+    queueStructure();
     return 0;
 }
+void queueStructure(){
+    // FIFO Structure
+    queue<int> Q;
+
+    Q.push(45);
+    Q.push(46);
+    Q.push(47);
+    cout<<Q.front()<<endl;
+    Q.pop();
+    cout<<Q.front()<<endl;
+    cout<<Q.back()<<endl;
+
+    return;
+}
 void stackStructure(){
+    // LIFO Structure
     stack<int> s;
     s.push(9);
     s.push(8);

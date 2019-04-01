@@ -7,13 +7,49 @@ void subsetSearch(int);
 void bitShiftOperation();
 void timeCalculation();
 void subsetUsingBit();
+void permutationFunction1();
+void permutationFunction2();
 // Sub Set Search Global Variables
-int N = 20;
+int N = 3;
 vector<int> subset;
+vector<int> permutation;
+bool choice[3];
 
 int main(){
-    timeCalculation();
+    permutationFunction2();
     return 0;
+}
+void permutationFunction2(){
+    // Standard Lib Function
+    for(int i=0;i<N;i++){
+        permutation.push_back(i);
+    }
+    do{
+        for(int it:permutation){
+            cout<<it<<", ";
+        }
+        cout<<endl;
+    }while(next_permutation(permutation.begin(),permutation.end()));
+    return;
+}
+void permutationFunction1(){
+    // It is a recursive function
+    if(permutation.size() == N){
+        for(int i:permutation){
+            cout<<i<<", ";
+        }
+        cout<<endl;
+    }else{
+        for(int i=0;i<N;i++){
+            if(choice[i])
+                continue;
+            choice[i] = true;
+            permutation.push_back(i);
+            permutationFunction1();
+            choice[i] = false;
+            permutation.pop_back();
+        }
+    }
 }
 void subsetUsingBit(){
     //4656317 : microseconds : FOR N=20

@@ -4,14 +4,29 @@ int recursive_coin(int);
 int memoize_coin(int);
 void iterative_coin(int);
 void print_iterative_coin(int);
+void possible_solutions(int);
+
 int main(){
-    print_iterative_coin(12589);
+    possible_solutions(5);
     return 0;
 }
-int coins[] = {1,2,5,10,20,50,100,200,500};
+int coins[] = {1,3,4};
 int check[10000];
 bool flag[10000];
-
+void possible_solutions(int N){
+    int C[N+1];
+    C[0] = 1; // One possible solution for 0
+    for(int x=1;x<=N;x++){
+        C[x] = 0;
+        for(auto coin : coins){
+            if(x-coin >= 0){
+                C[x] += C[x-coin];
+            }
+        }
+    }
+    cout<<"Total Possible Solution for "<<N<<" is "<<C[N]<<endl;
+    return;
+}
 void print_iterative_coin(int N){
     int V[N+1];
     int first[N+1];
